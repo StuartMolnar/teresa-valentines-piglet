@@ -31,3 +31,127 @@ body {
     text-wrap: balance;
   }
 }
+
+.text-shadow {
+  text-shadow: #DAF7A6  1px 0 10px;
+}
+
+
+#heart {
+  position: relative;
+  width: 75px; 
+  height: 67.5px;
+  margin-top: 7.5px; 
+}
+
+#heart::before,
+#heart::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 39px;
+  height: 60px; 
+  border-radius: 37.5px 37.5px 0 0;
+  background: red;
+  transition: background 0.3s;
+}
+
+#heart::before {
+  left: 37.5px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+#heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+/* Hover effect */
+#heart:hover::before,
+#heart:hover::after {
+  background: #ffd54f; /* Cozy yellow color */
+}
+
+
+/* Media query for screen sizes less than 768px */
+@media (max-width: 767px) {
+  #heart {
+    width: 50px;
+    height: 45px;
+    margin-top: 5px;
+  }
+
+  #heart::before,
+  #heart::after {
+    width: 26px;
+    height: 40px;
+  }
+
+  #heart::before {
+    left: 25px;
+    /* Scale transform-origin proportionally if needed */
+  }
+
+  #heart::after {
+    /* Scale transform-origin proportionally if needed */
+  }
+}
+
+/* body {
+  cursor: none;
+} */
+
+#heart-cursor {
+  position: fixed;
+  width: 20px; /* Size of the heart cursor */
+  height: 18px; /* Size of the heart cursor */
+  background-color: red; /* Heart color */
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Clip-path to create a heart shape */
+  transform: translate(-50%, -50%); /* Center the heart on the cursor position */
+  pointer-events: none; /* Allows click events to pass through */
+  z-index: 1000; /* Ensures the cursor is above other items */
+}
+
+
+
+/* falling hearts animation */
+@import url("https://fonts.googleapis.com/css2?family=Pacifico:wght@200;400;600&display=swap");
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+
+* {
+  box-sizing: border-box;
+}
+.cd__main{
+   background: pink !important;
+   font-family: 'Pacifico', cursive !important;
+   min-height: 450px;
+}
+body { 
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pacifico', cursive;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.heart {
+  position: fixed;
+  font-size: 1.5rem;
+  top: -1vh;
+  transform: translateY(0);
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  from {
+     transform: translateY(0vh) translateX(-10vw); 
+  }
+  to {
+     transform: translateY(105vh) translateX(10vw); 
+  }
+}
